@@ -1,0 +1,7 @@
+{
+  "appId": "com.sanjaydigitalworks.progression",
+  "appName": "Progression",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "android": { "backgroundColor": "#0a0f1d" }
+}

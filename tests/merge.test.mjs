@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { mergeStates, validateBackup } from '../www/js/state.js';
+const base = { v:2, user:{name:'S'}, goals:[{id:'g1',name:'G',start:'2026-01-01',end:'2026-12-31'}], missions:[{id:'m1',goalId:'g1',name:'M',type:'check',target:1,xp:10,start:'2026-01-01'}], logs:{}, xp:[], stats:[], ach:[], reviews:{}, notes:[], trackers:[], trackerLogs:{}, settings:{restDays:{},freezeDates:{}} };
+const A = structuredClone(base); A.lastModified='2026-10-01T00:00:00Z'; A.logs['m1|2026-09-30']={missionId:'m1',date:'2026-09-30',value:1}; A.settings.restDays['2026-09-29']=true; A.reviews['w1']={t:1}; A.ach=[{id:'a1',date:'2026-09-30'}];
+const B = structuredClone(base); B.lastModified='2026-10-02T00:00:00Z'; B.logs['m1|2026-10-01']={missionId:'m1',date:'2026-10-01',value:1}; B.settings.restDays['2026-10-03']=true;
+const M = mergeStates(A,B);
+assert.equal(Object.keys(M.logs).length,2);
+assert.deepEqual(Object.keys(M.settings.restDays).sort(),['2026-09-29','2026-10-03']);
+assert.ok(M.reviews.w1); assert.equal(M.ach.length,1);
+assert.equal(validateBackup(M).ok,true);
+assert.equal(mergeStates(B,A).lastModified,B.lastModified);
+console.log('merge tests pass');

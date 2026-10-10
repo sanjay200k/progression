@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Progression</string>
+    <string name="title_activity_main">Progression</string>
+    <string name="package_name">com.sanjaydigitalworks.progression</string>
+    <string name="custom_url_scheme">com.sanjaydigitalworks.progression</string>
+</resources>
