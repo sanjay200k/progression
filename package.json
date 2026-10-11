@@ -4,15 +4,21 @@
   "private": true,
   "scripts": {
     "serve": "python3 -m http.server 4173 --directory www",
-    "test": "node tests/merge.test.mjs",
+    "test": "node --test",
     "android:add": "cap add android",
     "sync": "cap sync",
     "open": "cap open android",
-    "apk": "cap sync android && cd android && ./gradlew assembleDebug"
+    "apk": "cap sync android && cd android && ./gradlew assembleDebug",
+    "aab": "cap sync android && cd android && ./gradlew bundleRelease",
+    "apk:release": "cap sync android && cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",
+    "@capacitor/app": "^7.0.0",
     "@capacitor/core": "^7.0.0",
+    "@capacitor/haptics": "^7.0.0",
+    "@capacitor/local-notifications": "^7.0.0",
+    "@capacitor/preferences": "^7.0.0",
     "@capacitor/status-bar": "^7.0.0"
   },
   "devDependencies": {
