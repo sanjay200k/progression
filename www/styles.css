@@ -175,3 +175,55 @@ dialog{background:linear-gradient(145deg,#172239,var(--sf));box-shadow:0 24px 80
 @media(prefers-color-scheme:light){:root:not([data-theme="dark"]) body:after{opacity:.05}}
 :root[data-theme="light"] body{background:radial-gradient(circle at 80% -10%,#dce8ff 0,transparent 40%),var(--bg)}
 :root[data-theme="light"] body:before,:root[data-theme="light"] body:after{opacity:.06}
+
+/* Arc hero redesign */
+.system-window{border-radius:18px;border-color:color-mix(in srgb,var(--ac) 55%,var(--ln));box-shadow:0 0 0 1px #7ea6ff1a,0 0 22px #4d7cff26,0 18px 50px #05091670}
+.system-window:before,.system-window:after{display:none}
+.sys-scan{opacity:1;mix-blend-mode:normal;background-image:radial-gradient(circle,#7ea6ff2e 1px,transparent 1.2px);background-size:16px 16px;background-position:8px 8px}
+.arc-stat{border-radius:12px;border-color:color-mix(in srgb,var(--ac) 40%,var(--ln));background:color-mix(in srgb,var(--bg) 70%,transparent)}
+.arc-stat-row{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:4px}
+.arc-stat-row b{margin:0}
+.arc-ico{width:22px;height:22px;flex:none}
+.system-window .pbar{height:14px;border-radius:999px;border:1px solid color-mix(in srgb,var(--ac) 35%,var(--ln));background:repeating-linear-gradient(45deg,#1a2644 0 6px,#223158 6px 12px)}
+.system-window .pbar i{min-width:14px;border-radius:999px;background:linear-gradient(90deg,#2bb8ff,#4da3ff);box-shadow:0 0 14px #2bb8ff80}
+
+/* Arc screen polish: calmer bg, hierarchy, heatmap, phases */
+:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background:radial-gradient(circle at 70% 10%,#18265a55 0%,transparent 42%),radial-gradient(circle at 20% 80%,#17104430 0%,transparent 45%),#070b17}
+body:before{opacity:.07}
+@media(max-width:760px){body:before{opacity:.04}}
+main{gap:20px}
+.card{box-shadow:0 8px 24px #02061126}
+.system-window{box-shadow:0 0 0 1px #7ea6ff1a,0 0 26px #4d7cff30,0 18px 50px #05091670}
+.arc-title{font-size:clamp(36px,9vw,54px)}
+.xp-rules{border-color:color-mix(in srgb,var(--ac) 38%,var(--ln))}
+.xp-rules summary{display:flex;align-items:center;gap:6px;min-height:28px}
+.xp-rules summary .sub{color:var(--ac);flex:1}
+.xp-rules summary::after{content:"";width:9px;height:9px;border:solid var(--ac);border-width:0 2px 2px 0;transform:rotate(45deg);margin:-4px 4px 0 0;transition:transform .2s}
+.xp-rules[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+.arc-grid{gap:6px;padding:3px}
+.arc-day{min-height:42px;color:var(--t2);font-size:12px;transition:border-color .15s,background .15s,transform .1s}
+.arc-day:active{transform:scale(.94)}
+.arc-day .arc-score{font-size:10px;color:var(--t2)}
+.arc-day.future{opacity:.62;border-color:color-mix(in srgb,var(--ln) 80%,transparent)}
+.arc-day.future .arc-score{visibility:hidden}
+.arc-day.missed{border-color:color-mix(in srgb,var(--er) 55%,var(--ln));background:color-mix(in srgb,var(--er) 18%,var(--el))}
+.arc-day.today{box-shadow:inset 0 0 0 2px var(--ac),0 0 12px #7ea6ff55;color:var(--tx);opacity:1}
+.arc-day[aria-pressed=true]{border-color:var(--ac);color:var(--tx)}
+.arc-phases{gap:12px}
+.arc-phase{padding:14px;border-top-width:3px;transition:border-color .15s,background .15s}
+.arc-phase:hover{border-color:color-mix(in srgb,var(--ac) 60%,var(--ln))}
+.arc-phase.active{box-shadow:0 0 18px color-mix(in srgb,var(--xp) 18%,transparent)}
+.arc-phase .pbar{height:10px;background:#2a3656;margin:12px 0 0}
+.arc-phase.active .pbar i{background:var(--xp);box-shadow:0 0 10px color-mix(in srgb,var(--xp) 55%,transparent)}
+.arc-phase .pbar i{min-width:6px}
+/* One grid only; heatmap contrast + intentional today */
+body:after{display:none}
+.arc-day{font-size:13px;font-weight:700;color:#dbe3ff;letter-spacing:.01em}
+.arc-day .arc-score{font-size:11px;font-weight:600;color:#aebbdc}
+.arc-day.future{opacity:1;color:#9fabcc;border-color:#34415f}
+.arc-day.future .arc-score{visibility:hidden}
+.arc-day.today{background:color-mix(in srgb,var(--ac) 26%,var(--el));box-shadow:inset 0 0 0 2px var(--ac),0 0 14px #7ea6ff66;color:#fff}
+.arc-day.today .arc-score{color:#fff}
+.arc-day.today:after{content:"";position:absolute;top:4px;right:4px;width:5px;height:5px;border-radius:50%;background:var(--ac);box-shadow:0 0 6px var(--ac)}
+.arc-day.complete,.arc-day.partial{color:#fff}
+.arc-day.complete .arc-score,.arc-day.partial .arc-score{color:#fff}

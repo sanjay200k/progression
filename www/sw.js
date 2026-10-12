@@ -1,5 +1,5 @@
 /* Service worker: bump RELEASE_CACHE on every release so updated code is not trapped behind stale cache. */
-const RELEASE_CACHE = 'progression-v7';
+const RELEASE_CACHE = 'progression-v10';
 const APP_SHELL = ['./','./index.html','./styles.css','./manifest.webmanifest','./js/app.js','./js/state.js','./js/engine.js','./js/views.js','./js/wizard.js','./js/charts.js','./js/trackers.js','./js/supabase.js','./js/native.js','./fonts/chakra-petch-latin-500-normal.woff2','./fonts/chakra-petch-latin-600-normal.woff2','./fonts/chakra-petch-latin-700-normal.woff2','./fonts/ibm-plex-sans-latin-400-normal.woff2','./fonts/ibm-plex-sans-latin-500-normal.woff2','./fonts/ibm-plex-sans-latin-600-normal.woff2','./icon-192.png','./icon-512.png','./icon-maskable-512.png','./apple-touch-icon.png'];
 const isCode = url => new URL(url).pathname.endsWith('.js') || new URL(url).pathname.endsWith('.css') || new URL(url).pathname.endsWith('/') || new URL(url).pathname.endsWith('index.html');
 self.addEventListener('install', event => event.waitUntil(caches.open(RELEASE_CACHE).then(cache => Promise.allSettled(APP_SHELL.map(u => cache.add(u)))).then(() => self.skipWaiting())));
