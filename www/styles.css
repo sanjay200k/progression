@@ -227,3 +227,13 @@ body:after{display:none}
 .arc-day.today:after{content:"";position:absolute;top:4px;right:4px;width:5px;height:5px;border-radius:50%;background:var(--ac);box-shadow:0 0 6px var(--ac)}
 .arc-day.complete,.arc-day.partial{color:#fff}
 .arc-day.complete .arc-score,.arc-day.partial .arc-score{color:#fff}
+
+/* First-run tour */
+.tour{text-align:center;padding:6px 0 2px}
+.tour h2{margin:4px 0 8px;font-family:var(--f1)}
+.tour .sub{margin:0 auto;max-width:34ch;line-height:1.55}
+.tour-n{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;margin:4px auto 12px;background:color-mix(in srgb,var(--ac) 18%,var(--el));border:1px solid var(--ac);box-shadow:0 0 18px #7ea6ff40;font:700 24px var(--f1);color:var(--ac)}
+.tour-dots{display:flex;justify-content:center;gap:6px;margin:16px 0 4px}
+.tour-dots i{width:7px;height:7px;border-radius:4px;background:var(--ln);transition:width .2s,background .2s}
+.tour-dots i.on{width:20px;background:var(--ac)}
+.mf.tour-mf{display:flex;justify-content:space-between;align-items:center}
